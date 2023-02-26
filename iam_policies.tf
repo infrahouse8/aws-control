@@ -57,3 +57,21 @@ resource "aws_iam_policy" "TFAdminForGitHub" {
     }
   )
 }
+
+
+resource "aws_iam_policy" "TFAdminForS3" {
+  name        = "TFAdminForS3"
+  description = "Policy that allows provisioning of S3 buckets"
+  policy = jsonencode(
+    {
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Action" : "s3:ListBucket",
+          "Resource" : "*"
+        }
+      ]
+    }
+  )
+}
