@@ -18,6 +18,25 @@ resource "aws_iam_policy" "TFAWSAdmin" {
   )
 }
 
+resource "aws_iam_policy" "dynamodb-lock" {
+  policy = jsonencode(
+    {
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "dynamodb:DescribeTable",
+            "dynamodb:GetItem",
+            "dynamodb:PutItem",
+            "dynamodb:DeleteItem"
+          ],
+          "Resource" : aws_dynamodb_table.terraform_locks.arn
+        }
+      ]
+  })
+}
+
 resource "aws_iam_policy" "TFAdminForGitHub" {
   name        = "TFAdminForGitHub"
   description = "Policy that allows read-write access to the GitHub Terraform state bucket"
