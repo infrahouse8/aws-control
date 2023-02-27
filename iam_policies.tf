@@ -20,6 +20,7 @@ resource "aws_iam_policy" "TFAWSAdmin" {
 }
 
 resource "aws_iam_policy" "dynamodb-lock" {
+  name = "TFStateLocks"
   policy = jsonencode(
     {
       "Version" : "2012-10-17",
@@ -124,6 +125,7 @@ resource "aws_iam_policy" "TFAdminForS3" {
             "s3:GetReplicationConfiguration",
             "s3:ListBucket",
             "s3:PutBucketPublicAccessBlock",
+            "s3:PutBucketTagging",
             "s3:PutBucketVersioning",
             "s3:PutEncryptionConfiguration",
           ],
