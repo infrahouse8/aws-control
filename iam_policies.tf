@@ -102,6 +102,32 @@ resource "aws_iam_policy" "TFAdminForS3" {
           "Action" : "s3:ListBucket",
           "Resource" : "arn:aws:s3:::infrahouse-aws-s3-control"
         },
+        {
+          "Effect" : "Allow",
+          "Action" : [
+            "s3:GetAccelerateConfiguration",
+            "s3:GetBucketAcl",
+            "s3:GetBucketCors",
+            "s3:GetBucketLogging",
+            "s3:GetBucketObjectLockConfiguration",
+            "s3:GetBucketPolicy",
+            "s3:GetBucketPublicAccessBlock",
+            "s3:GetBucketRequestPayment",
+            "s3:GetBucketTagging",
+            "s3:GetBucketVersioning",
+            "s3:GetBucketWebsite",
+            "s3:GetEncryptionConfiguration",
+            "s3:GetLifecycleConfiguration",
+            "s3:GetReplicationConfiguration",
+            "s3:ListBucket",
+            "s3:PutBucketPublicAccessBlock",
+            "s3:PutBucketVersioning",
+            "s3:PutEncryptionConfiguration",
+          ],
+          "Resource" : [
+            "*"
+          ]
+        }
       ]
     }
   )
