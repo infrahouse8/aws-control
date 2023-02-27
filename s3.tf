@@ -6,6 +6,7 @@ resource "aws_s3_bucket" "infrahouse-aws-control" {
   lifecycle {
     prevent_destroy = true
   }
+  tags = merge(local.common_tags)
 }
 
 resource "aws_s3_bucket_versioning" "enabled" {

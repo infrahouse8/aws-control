@@ -16,6 +16,7 @@ resource "aws_iam_policy" "TFAWSAdmin" {
       ]
     }
   )
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_policy" "dynamodb-lock" {
@@ -35,6 +36,7 @@ resource "aws_iam_policy" "dynamodb-lock" {
         }
       ]
   })
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_policy" "TFAdminForGitHub" {
@@ -76,6 +78,7 @@ resource "aws_iam_policy" "TFAdminForGitHub" {
       ]
     }
   )
+  tags = merge(local.common_tags)
 }
 
 
@@ -131,4 +134,5 @@ resource "aws_iam_policy" "TFAdminForS3" {
       ]
     }
   )
+  tags = merge(local.common_tags)
 }
