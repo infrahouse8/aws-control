@@ -88,9 +88,20 @@ resource "aws_iam_policy" "TFAdminForS3" {
       "Statement" : [
         {
           "Effect" : "Allow",
+          "Action" : [
+            "s3:PutObject",
+            "s3:GetObject",
+            "s3:DeleteObject"
+          ],
+          "Resource" : [
+            "arn:aws:s3:::infrahouse-aws-s3-control/*"
+          ]
+        },
+        {
+          "Effect" : "Allow",
           "Action" : "s3:ListBucket",
-          "Resource" : "*"
-        }
+          "Resource" : "arn:aws:s3:::infrahouse-aws-s3-control"
+        },
       ]
     }
   )
