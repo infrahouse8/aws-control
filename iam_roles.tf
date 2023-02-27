@@ -18,6 +18,7 @@ resource "aws_iam_role" "github-admin" {
       ]
     }
   )
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_role_policy_attachment" "github-admin" {
@@ -50,6 +51,7 @@ resource "aws_iam_role" "s3-admin" {
       ]
     }
   )
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_role_policy_attachment" "s3-admin" {

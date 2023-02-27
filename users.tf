@@ -1,5 +1,6 @@
 resource "aws_iam_user" "aleks" {
   name = "aleks"
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_access_key" "aleks" {
@@ -8,6 +9,7 @@ resource "aws_iam_access_key" "aleks" {
 
 resource "aws_iam_user" "tf_github" {
   name = "tf_github"
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_access_key" "tf_github" {
@@ -17,6 +19,7 @@ resource "aws_iam_access_key" "tf_github" {
 
 resource "aws_iam_user" "tf_s3" {
   name = "tf_s3"
+  tags = merge(local.common_tags)
 }
 
 resource "aws_iam_access_key" "tf_s3" {
