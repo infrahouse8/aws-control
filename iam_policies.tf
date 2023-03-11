@@ -109,6 +109,7 @@ resource "aws_iam_policy" "TFAdminForS3" {
         {
           "Effect" : "Allow",
           "Action" : [
+            "s3:CreateBucket",
             "s3:GetAccelerateConfiguration",
             "s3:GetBucketAcl",
             "s3:GetBucketCors",
