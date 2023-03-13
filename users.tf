@@ -25,3 +25,18 @@ resource "aws_iam_user" "tf_s3" {
 resource "aws_iam_access_key" "tf_s3" {
   user = aws_iam_user.tf_s3.name
 }
+
+
+resource "aws_iam_user" "twindb_test_runner" {
+  name = "twindb_test_runner"
+  tags = merge(local.common_tags)
+}
+
+resource "aws_iam_access_key" "twindb_test_runner" {
+  user = aws_iam_user.twindb_test_runner.name
+}
+
+resource "aws_iam_user_policy_attachment" "twindb_test_runner" {
+  policy_arn = aws_iam_policy.TwinDBTestRunner.arn
+  user       = aws_iam_user.twindb_test_runner.name
+}
